@@ -24,6 +24,11 @@ def do_redirect(short):
     abort(404)
 
 
+@app.route('/')
+def index():
+    return "<h1>AMAZING FUCKING SHORTENER</h1>"
+
+
 api.add_resource(ShortUrl, '/short')
 
 if __name__ == '__main__':
