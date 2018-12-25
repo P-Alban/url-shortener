@@ -1,6 +1,6 @@
 import os
 
-from flask import Flask, redirect
+from flask import Flask, redirect, render_template
 from flask_restful import Api
 from webargs.flaskparser import parser, abort
 
@@ -26,7 +26,7 @@ def do_redirect(short):
 
 @app.route('/')
 def index():
-    return "<h1>AMAZING FUCKING SHORTENER</h1>"
+    return render_template('index.html')
 
 
 api.add_resource(ShortUrl, '/short')
