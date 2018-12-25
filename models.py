@@ -33,3 +33,5 @@ class Url(BaseModel):
         short = token_urlsafe(5)
         return cls.create(base_url=url, short_url=short)
 
+
+db.create_tables([Url], safe=True)
