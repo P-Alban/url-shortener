@@ -26,7 +26,6 @@ def do_redirect(short):
 
 @app.errorhandler(404)
 def return_404(error):
-    print(error)
     return render_template('404_error.html'), 404
 
 
