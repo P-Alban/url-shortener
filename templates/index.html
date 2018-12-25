@@ -1,19 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Amazing shortener</title>
-    <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
-</head>
-<body>
-    <pre class="prettyprint">In [1]: import requests
-
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Amazing shortener</title>
+        <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+    </head>
+    <body>
+        <h1>
+            <pre class="prettyprint">In [1]: import requests
 In [2]: url = 'https://google.com/'
 
 In [3]: endpoint = 'https://short-my-shit.herokuapp.com/short?base_url={}'
 
 In [4]: requests.get(endpoint.format(url)).json()
 Out[4]: {'result': 'http://short-my-shit.herokuapp.com/9n9FaGI'}
-    </pre>
-</body>
+            </pre>
+        </h1>
+    </body>
 </html>
