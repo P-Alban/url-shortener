@@ -7,12 +7,14 @@
     </head>
     <body>
         <h1>
-            <pre class="prettyprint">In [1]: import requests
+            <pre class="prettyprint">
+In [1]: import requests
+
 In [2]: url = 'https://google.com/'
 
-In [3]: endpoint = 'https://short-my-shit.herokuapp.com/short?base_url={}'
+In [3]: endpoint = 'https://short-my-shit.herokuapp.com/short'
 
-In [4]: requests.get(endpoint.format(url)).json()
+In [4]: requests.get(endpoint, params={'base_url': url}).json()
 Out[4]: {'result': 'http://short-my-shit.herokuapp.com/9n9FaGI'}
             </pre>
         </h1>
