@@ -1,3 +1,5 @@
+import os
+
 from flask import Flask, redirect
 from flask_restful import Api
 from webargs.flaskparser import parser, abort
@@ -25,4 +27,4 @@ def do_redirect(short):
 api.add_resource(ShortUrl, '/short')
 
 if __name__ == '__main__':
-    app.run()
+    app.run(host='0.0.0.0', port=os.environ.get('PORT'))
