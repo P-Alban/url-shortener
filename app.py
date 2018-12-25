@@ -24,6 +24,12 @@ def do_redirect(short):
     abort(404)
 
 
+@app.errorhandler(404)
+def return_404(error):
+    print(error)
+    return render_template('404_error.html'), 404
+
+
 @app.route('/')
 def index():
     return render_template('index.html')
