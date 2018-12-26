@@ -16,7 +16,7 @@ def handle_request_parsing_error(err, req, schema):
     abort(422, errors=err.messages)
 
 
-@app.route('/<short>', methods=['POST'])
+@app.route('/<short>')
 def do_redirect(short):
     url = Url.get_base_by_short(short)
     if url:
