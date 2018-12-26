@@ -8,18 +8,32 @@
           integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 
 </head>
-<body>
-<h1>
+    <body>
+    <h2 style="text-align: center">
+        GTFO Shortener
+    </h2>
+    <div>
+        <h3>
             <pre class="prettyprint">
 In [1]: import requests
 
-In [2]: url = 'https://google.com/'
+In [2]: endpoint = "https://gtfo.gq/short"
 
-In [3]: endpoint = 'https://gtfo.gq/'
+In [3]: long_url = "https://www.google.com/search?q=%D0%B3%D1%83%D0%B3%D0%BB&rlz=1C1GGRV_enUA797UA797&s
+   ...: ource=lnms&tbm=isch&sa=X&ved=0ahUKEwi3iPHCzL3fAhVdAxAIHXWkBQMQ_AUIDigB&biw=1455&bih=689#imgrc=M
+   ...: GYEO8FcU32nfM:"
 
-In [4]: requests.get(endpoint, params={'base_url': url}).json()
-Out[4]: {'result': 'https://gtfo.gq/9n9FaGI'}
+In [4]: short_url = requests.post(endpoint, data={"base_url": long_url}).json()
+
+In [5]: short_url
+Out[5]: {'result': 'https://gtfo.gq/e'}
             </pre>
-</h1>
-</body>
+        </h3>
+    </div>
+    <div style="margin-left: 10px">
+        <h4>
+            <pre>Just API</pre>
+        </h4>
+    </div>
+    </body>
 </html>
