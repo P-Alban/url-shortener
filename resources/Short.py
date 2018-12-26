@@ -22,6 +22,6 @@ class ShortUrl(Resource):
     @staticmethod
     @use_kwargs(args)
     def post(base_url):
-        base = request.url_root
+        base = request.url_root.replace('http', 'https')
         short_url = utils.encode(Url.add_url(base_url).id)
         return {'result': base + short_url}
