@@ -3,8 +3,8 @@ from flask_restful import Resource
 from validators import url
 from webargs import fields, ValidationError
 from webargs.flaskparser import use_kwargs
-import utils
 
+import utils
 from models import Url
 
 
@@ -21,7 +21,7 @@ class ShortUrl(Resource):
 
     @staticmethod
     @use_kwargs(args)
-    def get(base_url):
+    def post(base_url):
         base = request.url_root
         short_url = utils.encode(Url.add_url(base_url).id)
         return {'result': base + short_url}

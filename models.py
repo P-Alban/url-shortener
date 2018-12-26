@@ -1,7 +1,9 @@
 import os
-import utils
+
 import peewee
 from playhouse.db_url import connect
+
+import utils
 
 db = connect(os.environ.get('DATABASE_URL'))
 
