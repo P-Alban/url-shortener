@@ -7,6 +7,9 @@ from webargs.flaskparser import parser, abort
 from models import Url
 from resources.Short import ShortUrl
 
+app = Flask(__name__)
+api = Api(app)
+
 
 class ProxyRequest(Request):
     def __init__(self, environ, populate_request=True, shallow=False):
@@ -44,10 +47,7 @@ def index():
     return render_template('index.html')
 
 
-app = Flask(__name__)
-api = Api(app)
 app.request_class = ProxyRequest
-
 api.add_resource(ShortUrl, '/short')
 
 if __name__ == '__main__':
