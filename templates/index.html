@@ -5,30 +5,103 @@
     <title>Amazing shortener</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
           integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-    <link href="{{ url_for('static', filename='favicon.ico') }}" rel="icon" type="image/x-icon" />
-    <link href="{{ url_for('static', filename='prism.css') }}" rel="stylesheet" />
+    <link href="{{ url_for('static', filename='favicon.ico') }}" rel="icon" type="image/x-icon"/>
+    <link href="{{ url_for('static', filename='prism.css') }}" rel="stylesheet"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
-    <body style="background: #2d2d2d">
-    <script src="{{ url_for('static', filename='prism.js') }}"></script>
-    <div>
-        <h3>
-            <pre><code class="language-python"># GTFO Shortener
-# API Only
+<body style="background: #FFFFFF">
+<script src="{{ url_for('static', filename='prism.js') }}"></script>
+{#    <div>#}
+{#        <h3>#}
+{#            <pre><code class="language-python"># GTFO Shortener#}
+{## API Only#}
+{##}
+{#In [1]: import requests#}
+{##}
+{#In [2]: endpoint = "https://gtfo.gq/short"#}
+{##}
+{#In [3]: long_url = "https://www.google.com/search?q=%D0%B3%D1%83%D0%B3%D0%BB&rlz=1C1GGRV_enUA797UA797&s#}
+{#   ...: ource=lnms&tbm=isch&sa=X&ved=0ahUKEwi3iPHCzL3fAhVdAxAIHXWkBQMQ_AUIDigB&biw=1455&bih=689#imgrc=M#}
+{#   ...: GYEO8FcU32nfM:"#}
+{##}
+{#In [4]: short_url = requests.post(endpoint, data={"base_url": long_url}).json()#}
+{##}
+{#In [5]: short_url#}
+{#Out[5]: {'result': 'https://gtfo.gq/e'}#}
+{#            </code></pre>#}
+{#        </h3>#}
+{#    </div>#}
+<style type="text/css">
+    #inp {
+        width: 70%; /* Ширина */
+        margin: auto;
+        margin-top: 8%;
+    }
+</style>
 
-In [1]: import requests
+<style type="text/css">
+    #site-title {
+        margin: auto;
+        margin-top: 2%;
+    }
+</style>
 
-In [2]: endpoint = "https://gtfo.gq/short"
+<style type="text/css">
+    #result {
+        width: 70%; /* Ширина */
+        margin: auto;
+        margin-top: 3%;
+        visibility: hidden
+    }
+</style>
 
-In [3]: long_url = "https://www.google.com/search?q=%D0%B3%D1%83%D0%B3%D0%BB&rlz=1C1GGRV_enUA797UA797&s
-   ...: ource=lnms&tbm=isch&sa=X&ved=0ahUKEwi3iPHCzL3fAhVdAxAIHXWkBQMQ_AUIDigB&biw=1455&bih=689#imgrc=M
-   ...: GYEO8FcU32nfM:"
+<div id="site-title">
+    <h1 style="text-align: center">
+        GTFO Shortener
+    </h1>
+</div>
 
-In [4]: short_url = requests.post(endpoint, data={"base_url": long_url}).json()
-
-In [5]: short_url
-Out[5]: {'result': 'https://gtfo.gq/e'}
-            </code></pre>
-        </h3>
+<div class="input-group input-group-lg" id="inp">
+    <div class="input-group-prepend">
+        <span class="input-group-text" id="inputGroup-sizing-lg">URL</span>
     </div>
-    </body>
+    <input type="text" id="base-url" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
+    <button id="res-btn" onclick="showPWField()" style="margin-top: 10px" type="button"
+            class="btn btn-primary btn-lg btn-block">
+        Short it
+    </button>
+    <script>
+        function showPWField() {
+            document.getElementById("result").style.visibility = "visible";
+            let textValue = $('#base-url').val();
+            $.ajax({
+                url: "/short",
+                type: 'POST',
+                data: {"base_url": textValue},
+                dataType: "jsonp",
+                success: function (response) {
+                    alert(response); // server response
+                }
+            });
+        }
+    </script>
+
+</div>
+
+<div id="result">
+    <div id="site-title">
+        <h1 style="text-align: center">Here's your short url</h1>
+    </div>
+    <div class="input-group input-group-lg">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroup-sizing-lg">Result</span>
+        </div>
+        <input type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
+        <button style="margin-top: 10px" type="button" class="btn-primary btn-lg btn-block btn btn-success">Copy to
+            clipboard
+        </button>
+    </div>
+</div>
+
+</body>
 </html>
