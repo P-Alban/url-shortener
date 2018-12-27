@@ -78,9 +78,8 @@
                 url: "/short",
                 type: 'POST',
                 data: {"base_url": textValue},
-                dataType: "jsonp",
                 success: function (response) {
-                    alert(response.json); // server response
+                    alert(response); // server response
                 }
             });
         }
