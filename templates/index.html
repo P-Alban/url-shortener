@@ -79,7 +79,7 @@
                 type: 'POST',
                 data: {"base_url": textValue},
                 success: function (response) {
-                    responseInput.css({visibility: "visible"});
+                    $('#result').css({visibility: "visible"});
                     responseInput.val(response.result)
                 },
                 error: function () {
