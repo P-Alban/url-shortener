@@ -80,6 +80,9 @@
                 data: {"base_url": textValue},
                 success: function (response) {
                     alert(response.result); // server response
+                },
+                error: function () {
+                    alert("error");
                 }
             });
         }
