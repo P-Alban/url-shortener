@@ -16,6 +16,11 @@ def handle_request_parsing_error(err, req, schema):
     abort(422, errors=err.messages)
 
 
+@app.route('/api')
+def api_reference():
+    return render_template('api.html')
+
+
 @app.route('/<short>')
 def do_redirect(short):
     url = Url.get_base_by_short(short)
