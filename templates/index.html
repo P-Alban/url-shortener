@@ -7,6 +7,13 @@
           integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <link href="{{ url_for('static', filename='favicon.ico') }}" rel="icon" type="image/x-icon"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <!------ Include the above in your HEAD tag ---------->
+
+
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 </head>
 <body style="background: #FFFFFF">
 <style type="text/css">
@@ -43,10 +50,12 @@
     <div class="input-group-prepend">
         <span class="input-group-text" id="inputGroup-sizing-lg">URL</span>
     </div>
-    <input placeholder="https://google.com/" type="text" id="base-url" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
+    <input placeholder="https://google.com/" type="text" id="base-url" class="form-control" aria-label="Large"
+           aria-describedby="inputGroup-sizing-sm">
     <button id="res-btn" onclick="showPWField()" style="margin-top: 10px" type="button"
             class="btn btn-primary btn-lg btn-block">
         Short it
+{#        <i style="margin-left: 5px" class="fa fa-circle-o-notch fa-spin"></i>#}
     </button>
     <script>
         function showPWField() {

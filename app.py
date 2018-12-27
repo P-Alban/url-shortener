@@ -3,9 +3,9 @@ import os
 from flask import Flask, redirect, render_template
 from flask_restful import Api
 from webargs.flaskparser import parser, abort
-
-from models import Url
-from resources.Short import ShortUrl
+#
+# from models import Url
+# from resources.Short import ShortUrl
 
 app = Flask(__name__)
 api = Api(app)
@@ -39,7 +39,7 @@ def index():
     return render_template('index.html')
 
 
-api.add_resource(ShortUrl, '/short')
+# api.add_resource(ShortUrl, '/short')
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=os.environ.get('PORT'))
