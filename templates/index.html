@@ -80,7 +80,7 @@
                 data: {"base_url": textValue},
                 dataType: "json",
                 success: function (response) {
-                    alert(typeof(response)); // server response
+                    alert(response.json); // server response
                 }
             });
         }
