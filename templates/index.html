@@ -79,8 +79,12 @@
                 type: 'POST',
                 data: {"base_url": textValue},
                 dataType: "json",
-                success: function (response) {
-                    alert(response.body); // server response
+            }).done(function (data) {
+                if (data.Success) {
+                    alert('success!');
+                    alert(data);
+                } else {
+                    alert(data.Error);
                 }
             });
         }
