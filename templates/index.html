@@ -79,7 +79,7 @@
                 type: 'POST',
                 data: {"base_url": textValue},
                 success: function (response) {
-                    alert(JSON.parse(response)); // server response
+                    alert(response.toString()); // server response
                 }
             });
         }
