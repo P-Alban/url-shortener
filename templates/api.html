@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="{{ url_for('static', filename='prism.css') }}" rel="stylesheet"/>
+    <script src="{{ url_for('static', filename='prism.js') }}"></script>
+    <link href="{{ url_for('static', filename='favicon.ico') }}" rel="icon" type="image/x-icon"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+          integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+</head>
+<body style="background: #2d2d2d">
+<div>
+    <h3>
+            <pre><code class="language-python"># GTFO Shortener
+# API Only
+
+In [1]: import requests
+
+In [2]: endpoint = "https://gtfo.gq/short"
+
+In [3]: long_url = "https://www.google.com/search?q=%D0%B3%D1%83%D0%B3%D0%BB&rlz=1C1GGRV_enUA797UA797&s
+   ...: ource=lnms&tbm=isch&sa=X&ved=0ahUKEwi3iPHCzL3fAhVdAxAIHXWkBQMQ_AUIDigB&biw=1455&bih=689#imgrc=M
+   ...: GYEO8FcU32nfM:"
+
+In [4]: short_url = requests.post(endpoint, data={"base_url": long_url}).json()
+
+In [5]: short_url
+Out[5]: {'result': 'https://gtfo.gq/e'}
+            </code></pre>
+    </h3>
+</div>
+</body>
+</html>

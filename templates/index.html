@@ -6,31 +6,9 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
           integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <link href="{{ url_for('static', filename='favicon.ico') }}" rel="icon" type="image/x-icon"/>
-    <link href="{{ url_for('static', filename='prism.css') }}" rel="stylesheet"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body style="background: #FFFFFF">
-<script src="{{ url_for('static', filename='prism.js') }}"></script>
-{#    <div>#}
-{#        <h3>#}
-{#            <pre><code class="language-python"># GTFO Shortener#}
-{## API Only#}
-{##}
-{#In [1]: import requests#}
-{##}
-{#In [2]: endpoint = "https://gtfo.gq/short"#}
-{##}
-{#In [3]: long_url = "https://www.google.com/search?q=%D0%B3%D1%83%D0%B3%D0%BB&rlz=1C1GGRV_enUA797UA797&s#}
-{#   ...: ource=lnms&tbm=isch&sa=X&ved=0ahUKEwi3iPHCzL3fAhVdAxAIHXWkBQMQ_AUIDigB&biw=1455&bih=689#imgrc=M#}
-{#   ...: GYEO8FcU32nfM:"#}
-{##}
-{#In [4]: short_url = requests.post(endpoint, data={"base_url": long_url}).json()#}
-{##}
-{#In [5]: short_url#}
-{#Out[5]: {'result': 'https://gtfo.gq/e'}#}
-{#            </code></pre>#}
-{#        </h3>#}
-{#    </div>#}
 <style type="text/css">
     #inp {
         width: 70%; /* Ширина */
@@ -83,7 +61,7 @@
                     responseInput.val(response.result)
                 },
                 error: function () {
-                    alert("error");
+                    alert("Invalid URL");
                 }
             });
         }
@@ -101,7 +79,8 @@
         </div>
         <input id="result-url" readonly type="text" class="form-control" aria-label="Large"
                aria-describedby="inputGroup-sizing-sm">
-        <button onclick="doCopy()" style="margin-top: 10px" type="button" class="btn-primary btn-lg btn-block btn btn-success">Copy to
+        <button onclick="doCopy()" style="margin-top: 10px" type="button"
+                class="btn-primary btn-lg btn-block btn btn-success">Copy to
             clipboard
         </button>
         <script>
@@ -114,6 +93,8 @@
         </script>
     </div>
 </div>
-
+<div id="api" style="margin-left: 1%">
+    <a href="{{ url_for('static', filename='api.html') }}">API</a>
+</div>
 </body>
 </html>
