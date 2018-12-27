@@ -72,14 +72,15 @@
     </button>
     <script>
         function showPWField() {
-            document.getElementById("result").style.visibility = "visible";
+            let responseInput = $('#result-url');
             let textValue = $('#base-url').val();
             $.ajax({
                 url: "/short",
                 type: 'POST',
                 data: {"base_url": textValue},
                 success: function (response) {
-                    alert(response.result); // server response
+                    responseInput.css({visibility: "visible"});
+                    responseInput.val(response.result)
                 },
                 error: function () {
                     alert("error");
@@ -98,7 +99,7 @@
         <div class="input-group-prepend">
             <span class="input-group-text" id="inputGroup-sizing-lg">Result</span>
         </div>
-        <input type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
+        <input id="result-url" readonly type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
         <button style="margin-top: 10px" type="button" class="btn-primary btn-lg btn-block btn btn-success">Copy to
             clipboard
         </button>
