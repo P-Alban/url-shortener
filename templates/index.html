@@ -80,7 +80,8 @@
                 data: {"base_url": textValue},
                 dataType: "json",
                 success: function (response) {
-                    alert(response.val()); // server response
+                    let returnedData = JSON.parse(response);
+                    alert(returnedData); // server response
                 }
             });
         }
