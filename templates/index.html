@@ -43,7 +43,7 @@
     <div class="input-group-prepend">
         <span class="input-group-text" id="inputGroup-sizing-lg">URL</span>
     </div>
-    <input type="text" id="base-url" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
+    <input placeholder="https://google.com/" type="text" id="base-url" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
     <button id="res-btn" onclick="showPWField()" style="margin-top: 10px" type="button"
             class="btn btn-primary btn-lg btn-block">
         Short it
@@ -88,7 +88,7 @@
                 let copyText = document.getElementById("result-url");
                 copyText.select();
                 document.execCommand("copy");
-                alert(copyText.value + "copied to clipboard");
+                alert(copyText.value + " copied to clipboard");
             }
         </script>
     </div>
