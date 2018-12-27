@@ -3,17 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <title>Amazing shortener</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
-          integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
     <link href="{{ url_for('static', filename='favicon.ico') }}" rel="icon" type="image/x-icon"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 </head>
 <body style="background: #FFFFFF">
 <style type="text/css">
     #inp {
         width: 70%; /* Ширина */
         margin: auto;
-        margin-top: 8%;
+        margin-top: 7%;
     }
 </style>
 
@@ -34,16 +34,16 @@
 </style>
 
 <div id="site-title">
-    <h1 style="text-align: center">
-        GTFO Shortener
-    </h1>
+    <h1 style="text-align: center">GTFO</h1>
+    <h1 style="text-align: center">Shortener</h1>
 </div>
 
 <div class="input-group input-group-lg" id="inp">
     <div class="input-group-prepend">
         <span class="input-group-text" id="inputGroup-sizing-lg">URL</span>
     </div>
-    <input placeholder="https://google.com/" type="text" id="base-url" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
+    <input placeholder="https://google.com/" type="text" id="base-url" class="form-control" aria-label="Large"
+           aria-describedby="inputGroup-sizing-sm">
     <button id="res-btn" onclick="showPWField()" style="margin-top: 10px" type="button"
             class="btn btn-primary btn-lg btn-block">
         Short it
