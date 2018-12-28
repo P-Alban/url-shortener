@@ -56,26 +56,27 @@
 
             let button = $('button#res-btn');
             let original = button.html();
-
             button.html(progressBar);
             button.attr("disabled", "disabled");
             return do_ajax(button, original);
         }
 
-        function do_ajax(a, b) {
+        function do_ajax(button, original) {
             let responseInput = $('#result-url');
             let textValue = $('#base-url').val();
-            return $.ajax({
+            $.ajax({
                 url: "/short",
                 type: 'POST',
                 data: {"base_url": textValue},
                 success: function (response) {
                     $('#result').css({visibility: "visible"});
-                    responseInput.val(response.result);
-                    a.html(b);
-                    a.removeAttr('disabled');
+                    responseInput.val(response.result)
+                    button.html(original);
+                    button.removeAttr('disabled');
                 },
                 error: function () {
+                    button.html(original);
+                    button.removeAttr('disabled');
                     alert("Invalid URL");
                 }
             });
