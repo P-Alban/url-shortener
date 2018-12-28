@@ -55,7 +55,8 @@
             let original = button.html();
             let loadingText = '<i class="fa fa-circle-o-notch fa-spin"></i> Loading...';
             button.html(loadingText);
-            return request_ajax(button, original);
+            request_ajax(button, original);
+            button.html(original)
         }
 
         function request_ajax(btn, original) {
@@ -68,10 +69,8 @@
                 success: function (response) {
                     $('#result').css({visibility: "visible"});
                     responseInput.val(response.result);
-                    btn.html(original);
                 },
                 error: function () {
-                    btn.html(original);
                     alert("Invalid URL");
                 }
             });
