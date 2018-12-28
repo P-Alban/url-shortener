@@ -55,7 +55,6 @@
             let original = button.html();
             let loadingText = '<i class="fa fa-circle-o-notch fa-spin"></i> Loading...';
             button.html(loadingText);
-            alert(456);
             return request_ajax(button, original);
         }
 
