@@ -50,11 +50,26 @@
         Short it
     </button>
     <script>
+        let progressBar = "<span style=\"width: 1.5rem; height: 1.5rem\"; class=\"spinner-border mr-2 spinner-border-sm\" role=\"status\" aria-hidden=\"true\"></span>";
 
         function request_ajax() {
+            let button = $('button#res-btn');
+            let original = button.html();
+            button.html(progressBar);
+            button.attr("disabled", "disabled");
+            do_ajax();
+            stable(button, original);
+        }
+
+        function stable(a, b) {
+            a.html(b);
+            a.removeAttr("disabled");
+        }
+
+        function do_ajax() {
             let responseInput = $('#result-url');
             let textValue = $('#base-url').val();
-            $.ajax({
+            return $.ajax({
                 url: "/short",
                 type: 'POST',
                 data: {"base_url": textValue},
@@ -70,7 +85,6 @@
     </script>
 
 </div>
-
 <div id="result">
     <div id="site-title">
         <h1 style="text-align: center">Here's your short url</h1>
