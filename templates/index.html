@@ -43,8 +43,10 @@
     <div class="input-group-prepend">
         <span class="input-group-text" id="inputGroup-sizing-lg">URL</span>
     </div>
-    <input placeholder="https://google.com/" type="text" id="base-url" class="form-control" aria-label="Large"
+    <input placeholder="https://google.com/" type="text" id="ase-burl" class="form-control"
+           aria-label="Large"
            aria-describedby="inputGroup-sizing-sm">
+    <div class="invalid-feedback">Wrong url format.</div>
     <button id="res-btn" onclick="request_ajax()" style="margin-top: 10px" type="button"
             class="btn btn-primary btn-lg btn-block">
         Short it
@@ -53,7 +55,6 @@
         let progressBar = "<span style=\"width: 1.5rem; height: 1.5rem\"; class=\"spinner-border mr-2 spinner-border-sm\" role=\"status\" aria-hidden=\"true\"></span>";
 
         function request_ajax() {
-
             let button = $('button#res-btn');
             let original = button.html();
             button.html(progressBar);
@@ -62,22 +63,24 @@
         }
 
         function do_ajax(button, original) {
+            let baseField = $('#base-url');
             let responseInput = $('#result-url');
-            let textValue = $('#base-url').val();
+            let textValue = baseField.val();
             $.ajax({
                 url: "/short",
                 type: 'POST',
                 data: {"base_url": textValue},
                 success: function (response) {
                     $('#result').css({visibility: "visible"});
-                    responseInput.val(response.result)
+                    responseInput.val(response.result);
                     button.html(original);
                     button.removeAttr('disabled');
+                    baseField.removeClass('is - invalid')
                 },
                 error: function () {
                     button.html(original);
                     button.removeAttr('disabled');
-                    alert("Invalid URL");
+                    baseField.addClass('is-invalid')
                 }
             });
         }
