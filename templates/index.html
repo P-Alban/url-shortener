@@ -43,7 +43,7 @@
     <div class="input-group-prepend">
         <span class="input-group-text" id="inputGroup-sizing-lg">URL</span>
     </div>
-    <input placeholder="https://google.com/" type="text" id="ase-burl" class="form-control"
+    <input placeholder="https://google.com/" type="text" id="base-url" class="form-control"
            aria-label="Large"
            aria-describedby="inputGroup-sizing-sm">
     <div class="invalid-feedback">Wrong url format.</div>
@@ -80,7 +80,7 @@
                 error: function () {
                     button.html(original);
                     button.removeAttr('disabled');
-                    baseField.addClass('is-invalid')
+                    baseField.addClass(' is-invalid')
                 }
             });
         }
