@@ -7,6 +7,7 @@
     <link href="{{ url_for('static', filename='favicon.ico') }}" rel="icon" type="image/x-icon"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body style="background: #FFFFFF">
 <style type="text/css">
@@ -44,12 +45,21 @@
     </div>
     <input placeholder="https://google.com/" type="text" id="base-url" class="form-control" aria-label="Large"
            aria-describedby="inputGroup-sizing-sm">
-    <button id="res-btn" onclick="showPWField()" style="margin-top: 10px" type="button"
+    <button id="res-btn" onclick="load()" style="margin-top: 10px" type="button"
             class="btn btn-primary btn-lg btn-block">
         Short it
     </button>
     <script>
-        function showPWField() {
+        function load() {
+            let button = $('#res-btn');
+            let original = button.html();
+            let loadingText = '<i class="fa fa-circle-o-notch fa-spin"></i> Loading...';
+            button.html(loadingText);
+            alert(456);
+            return request_ajax(button, original);
+        }
+
+        function request_ajax(btn, original) {
             let responseInput = $('#result-url');
             let textValue = $('#base-url').val();
             $.ajax({
@@ -58,9 +68,11 @@
                 data: {"base_url": textValue},
                 success: function (response) {
                     $('#result').css({visibility: "visible"});
-                    responseInput.val(response.result)
+                    responseInput.val(response.result);
+                    btn.html(original);
                 },
                 error: function () {
+                    btn.html(original);
                     alert("Invalid URL");
                 }
             });
