@@ -80,7 +80,8 @@
                 error: function () {
                     button.html(original);
                     button.removeAttr('disabled');
-                    baseField.addClass(' is-invalid')
+                    baseField.addClass('is-invalid');
+                    $('#result').css({visibility: "hidden"});
                 }
             });
         }
