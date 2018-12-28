@@ -56,10 +56,10 @@
 
             let button = $('button#res-btn');
             let original = button.html();
-            do_ajax(button, original);
+
             button.html(progressBar);
             button.attr("disabled", "disabled");
-
+            return do_ajax(button, original);
         }
 
         function do_ajax(a, b) {
