@@ -45,21 +45,13 @@
     </div>
     <input placeholder="https://google.com/" type="text" id="base-url" class="form-control" aria-label="Large"
            aria-describedby="inputGroup-sizing-sm">
-    <button id="res-btn" onclick="load()" style="margin-top: 10px" type="button"
+    <button id="res-btn" onclick="request_ajax()" style="margin-top: 10px" type="button"
             class="btn btn-primary btn-lg btn-block">
         Short it
     </button>
     <script>
-        function load() {
-            let button = $('#res-btn');
-            let original = button.html();
-            let loadingText = '<i class="fa fa-circle-o-notch fa-spin"></i> Loading...';
-            button.html(loadingText);
-            request_ajax(button, original);
-            button.html(original)
-        }
 
-        function request_ajax(btn, original) {
+        function request_ajax() {
             let responseInput = $('#result-url');
             let textValue = $('#base-url').val();
             $.ajax({
@@ -68,7 +60,7 @@
                 data: {"base_url": textValue},
                 success: function (response) {
                     $('#result').css({visibility: "visible"});
-                    responseInput.val(response.result);
+                    responseInput.val(response.result)
                 },
                 error: function () {
                     alert("Invalid URL");
