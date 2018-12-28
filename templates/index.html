@@ -53,9 +53,10 @@
         let progressBar = "<span style=\"width: 1.5rem; height: 1.5rem\"; class=\"spinner-border mr-2 spinner-border-sm\" role=\"status\" aria-hidden=\"true\"></span>";
 
         function request_ajax() {
-            do_ajax(button, original);
+
             let button = $('button#res-btn');
             let original = button.html();
+            do_ajax(button, original);
             button.html(progressBar);
             button.attr("disabled", "disabled");
 
