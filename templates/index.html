@@ -53,20 +53,15 @@
         let progressBar = "<span style=\"width: 1.5rem; height: 1.5rem\"; class=\"spinner-border mr-2 spinner-border-sm\" role=\"status\" aria-hidden=\"true\"></span>";
 
         function request_ajax() {
+            do_ajax(button, original);
             let button = $('button#res-btn');
             let original = button.html();
             button.html(progressBar);
             button.attr("disabled", "disabled");
-            do_ajax();
-            stable(button, original);
+
         }
 
-        function stable(a, b) {
-            a.html(b);
-            a.removeAttr("disabled");
-        }
-
-        function do_ajax() {
+        function do_ajax(a, b) {
             let responseInput = $('#result-url');
             let textValue = $('#base-url').val();
             return $.ajax({
@@ -75,7 +70,9 @@
                 data: {"base_url": textValue},
                 success: function (response) {
                     $('#result').css({visibility: "visible"});
-                    responseInput.val(response.result)
+                    responseInput.val(response.result);
+                    a.html(b);
+                    a.removeAttr('disabled');
                 },
                 error: function () {
                     alert("Invalid URL");
