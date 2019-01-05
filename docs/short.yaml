@@ -9,15 +9,17 @@ responses:
     content:
       application/json:
         schema:
-          type: array
-          items:
-            properties:
-              result:
-                type: string
-                example: gtfo.gq/d1n
+          $ref: '#/definitions/Response'
 definitions:
   Url:
     type: object
     properties:
       base_url:
         type: string
+  Response:
+    type: object
+    items:
+      properties:
+        result:
+          type: string
+          example: gtfo.gq/d1n
