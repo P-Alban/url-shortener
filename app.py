@@ -11,8 +11,9 @@ from resources.Short import ShortUrl
 app = Flask(__name__)
 api = Api(app)
 app.config['SWAGGER'] = {
-    'title': 'My API',
-    'uiversion': 3
+    'title': 'Shortener API',
+    'uiversion': 3,
+    'description': ''
 }
 swagger = Swagger(app)
 
