@@ -1,3 +1,4 @@
+from flasgger import swag_from
 from flask import request
 from flask_restful import Resource
 from validators import url
@@ -21,6 +22,7 @@ class ShortUrl(Resource):
 
     @staticmethod
     @use_kwargs(args)
+    @swag_from('docs/short.yaml')
     def post(base_url):
         base = request.url_root.replace('http://', '')
         short_url = utils.encode(Url.add_url(base_url).id)

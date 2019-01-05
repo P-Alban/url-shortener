@@ -3,12 +3,18 @@ import os
 from flask import Flask, redirect, render_template
 from flask_restful import Api
 from webargs.flaskparser import parser, abort
+from flasgger import Swagger, swag_from
 
 from models import Url
 from resources.Short import ShortUrl
 
 app = Flask(__name__)
 api = Api(app)
+app.config['SWAGGER'] = {
+    'title': 'My API',
+    'uiversion': 3
+}
+swagger = Swagger(app)
 
 
 @parser.error_handler

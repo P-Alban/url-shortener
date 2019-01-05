@@ -1,0 +1,20 @@
+parameters:
+  - name: body
+    in: body
+    schema:
+      $ref: '#/definitions/Url'
+responses:
+  '200':
+    description: A JSON array of user names
+    content:
+      application/json:
+        schema:
+          type: array
+          items:
+            type: string
+definitions:
+  Url:
+    type: object
+    properties:
+      base_url:
+        type: string
