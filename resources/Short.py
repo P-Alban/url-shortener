@@ -22,7 +22,7 @@ class ShortUrl(Resource):
 
     @staticmethod
     @use_kwargs(args)
-    @swag_from('app/docs/short.yaml')
+    @swag_from('../docs/short.yaml')
     def post(base_url):
         base = request.url_root.replace('http://', '')
         short_url = utils.encode(Url.add_url(base_url).id)
