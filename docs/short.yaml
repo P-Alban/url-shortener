@@ -10,10 +10,11 @@ responses:
       application/json:
         schema:
           type: array
-          properties:
-            retult:
-              type: string
-              example: gtfo.gq/d1n
+          items:
+            properties:
+              result:
+                type: string
+                example: gtfo.gq/d1n
 definitions:
   Url:
     type: object
