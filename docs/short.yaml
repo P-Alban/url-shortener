@@ -9,7 +9,7 @@ responses:
     content:
       application/json:
         schema:
-          $ref: '#/definitions'
+          $ref: '#/definitions/Response'
 definitions:
   Url:
     type: object
