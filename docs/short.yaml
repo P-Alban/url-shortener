@@ -10,6 +10,9 @@ responses:
       application/json:
         schema:
           $ref: '#/definitions/Response'
+      application/xml:
+        schema:
+          $ref: '#/definitions/Response'
 definitions:
   Url:
     type: object
