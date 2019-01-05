@@ -18,8 +18,7 @@ definitions:
         type: string
   Response:
     type: object
-    items:
-      properties:
-        result:
-          type: string
-          example: gtfo.gq/d1n
+    properties:
+      result:
+        type: string
+        example: gtfo.gq/d1n
