@@ -3,7 +3,7 @@ import os
 from flask import Flask, redirect, render_template
 from flask_restful import Api
 from webargs.flaskparser import parser, abort
-from flasgger import Swagger, swag_from
+from flasgger import Swagger
 
 from models import Url
 from resources.Short import ShortUrl
